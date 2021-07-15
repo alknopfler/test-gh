@@ -9,7 +9,7 @@ on:
 
 
 env:
-  OC_RELEASE: ${{OC_RELEASE}}
+  OC_RELEASE: ${{github.event.inputs.OC_RELEASE}}
   OC_SECRET: ${{secrets.SECRETO1}}
 
 
