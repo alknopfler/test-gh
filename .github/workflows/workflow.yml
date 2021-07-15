@@ -1,0 +1,28 @@
+name: ocp_bm_ipi+Hive+AI+spoke+bmh
+on:
+  workflow_dispatch:
+    inputs:
+      OC_RELEASE:
+        description: 'ocp release: -> <-'
+        required: true
+      
+
+
+env:
+  OC_RELEASE: ${{OC_RELEASE}}
+  OC_SECRET: ${{secrets.SECRETO1}}
+
+
+jobs:
+  requirements:
+    runs-on: ${{github.event.inputs.RUNNER}}   #tag with your runner tag
+
+    steps:
+      - uses: actions/checkout@v2 # create a checkout (pull repository) in the runner working_dir (usually _work)
+      - run: git pull origin ${GITHUB_REF##*/}
+
+      - name: Install clients
+        run: |
+          
+          ./prueba.sh
+
